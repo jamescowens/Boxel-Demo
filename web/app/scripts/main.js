@@ -58,7 +58,7 @@
             var update = function () {
               cameraStats.begin()
               var b64jpeg = canvas.toDataURL("image/jpeg")
-              session.call('com.boxel.stream', [b64jpeg]).then(onVideoStream)
+              session.call('com.boxel.stream', [realm, b64jpeg]).then(onVideoStream)
               cameraStats.end()
             }
             requestAnimationFrame(update)
