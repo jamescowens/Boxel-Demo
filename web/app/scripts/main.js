@@ -91,14 +91,11 @@
 
       conn.onclose = function (reason, details) {
         console.log(reason) 
-        if (errorCount === 0) {
-          notie.alert(3, 'Error: ' + reason , 2.5)
-        }
+        notie.alert(3, 'Error: ' + reason , 2.5)
       }
       conn.open()
     }
   })
-
-  })(jQuery)
+})(jQuery)
     
 

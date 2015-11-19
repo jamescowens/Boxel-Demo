@@ -79,6 +79,15 @@ gulp.task('fonts', () => {
 });
 
 gulp.task('extras', () => {
+  gulp.src([
+    'app/scripts/camera.js',
+    'app/scripts/main.js',
+  ]).pipe(gulp.dest('dist/scripts'));
+
+  gulp.src([
+    'app/styles/sticky-footer.css' 
+  ]).pipe(gulp.dest('dist/styles'))
+
   return gulp.src([
     'app/*.*',
     '!app/*.html'
@@ -156,7 +165,7 @@ gulp.task('wiredep', () => {
     .pipe(gulp.dest('app'));
 });
 
-gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
+gulp.task('build', ['html', 'images', 'fonts', 'extras'], () => {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
