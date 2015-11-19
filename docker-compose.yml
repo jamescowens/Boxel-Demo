@@ -4,5 +4,17 @@ web:
     - 8080:8080
   links:
     - redis
+    - phantomjs
+    - boxel
 redis:
+  ports:
+    - 6379:6379
   image: redis
+phantomjs:
+  ports:
+    - 8910:8910
+  image: wernight/phantomjs
+  command: "/usr/local/bin/phantomjs --webdriver=8910"
+boxel:
+  image: boxel-cli
+  command: "boxel video"
