@@ -14,7 +14,7 @@ gulp build
 gulp serve:dist
 ```
 
-A web browser should open up and look like this:
+A web browser should open up with a login page.
 
 But how do we login?
 We are going to need [docker-machine](https://github.com/docker/machine) to do this and a Docker host.
@@ -43,7 +43,6 @@ Boxel uses [Redis](https://github.com/antirez/redis) to push codec data into a p
 Boxel uses [PhantomJS](https://github.com/ariya/phantomjs) for headless browsing to get images of websites to boxelize.
 
 # Installation 
-
 All of these dependencies can be built and packaged up into containers using [docker-compose]()
 ```bash
 # At the root of the project
@@ -57,5 +56,7 @@ docker-compose restart boxel
 ```
 
 Now if you got to the web containers ip (http://[docker-machine ip]:8080). 
-Login using the docker-machine ip ([docker-machine ip]:8080) and boxel as the room. You should see yourself in
-realtime boxelized and sending to redis it's palletized code ready to drawn using Minecraft blocks.
+Login using the docker-machine ip ([docker-machine ip]:8080) and boxel as the room. 
+
+You should see yourself in realtime boxelized and sending to redis it's palletized code 
+ready to be drawn using Minecraft blocks.
