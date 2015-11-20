@@ -42,7 +42,7 @@ Boxel uses [Redis](https://github.com/antirez/redis) to push codec data into a p
 ## PhantomJS
 Boxel uses [PhantomJS](https://github.com/ariya/phantomjs) for headless browsing to get images of websites to boxelize.
 
-------------
+# Building
 
 All of these dependencies can be built and packaged up into containers using [docker-compose]()
 ```bash
@@ -56,6 +56,6 @@ docker-compose up -d
 docker-compose restart boxel
 ```
 
-Now if you got to the browser using the docker-machine ip(example: http://http://192.168.99.100:8080/). 
-Login using the docker-machine ip (192.168.99.100:8080) and boxel as the room. You should see yourself in
+Now if you got to the web containers ip (http://[docker-machine ip]:8080). 
+Login using the docker-machine ip ([docker-machine ip]:8080) and boxel as the room. You should see yourself in
 realtime boxelized and sending to redis it's palletized code ready to drawn using Minecraft blocks.
