@@ -12,7 +12,7 @@ phantomjs:
   image: wernight/phantomjs
   command: "/usr/local/bin/phantomjs --webdriver=8910"
 boxel:
-  image: boxel-cli
+  image: boxel
   command: "boxel -W 50 -C palettes/5bit.yml video -R docker -U ws://192.168.99.100:8080/ws"
   links:
     - redis
