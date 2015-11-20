@@ -29,11 +29,12 @@ docker build -t boxel .
 docker images # should display boxel under REPOSITORY column
 ```
 
-Once we built the boxel container let's build it's dependencies:
+Once we built the boxel container let's build it's dependencies.
 
 ## Crossbar
 Boxel uses [Crossbar](http://crossbar.io/) for device discovery, 
-communication between the web app to the minecraft server, and to serve the web app we just saw.
+communication between the web app to the minecraft server, and to serve the web app we just saw. 
+It is built in the web container in the docker-compose.yml.
 
 ## Redis
 Boxel uses [Redis](https://github.com/antirez/redis) to push codec data into a pub/sub for Minecraft to use.
@@ -47,10 +48,10 @@ All of these dependencies can be built and packaged up into containers using [do
 ```bash
 # At the root of the project
 docker-machine ip <dev>
-# keep track of this url and add it to the boxel service
+# keep track of this url and edit in the boxel service command
 # in the docker-compose.yml
 command: "boxel -W 50 -C palettes/5bit.yml video -R docker -U ws://[docker-machine ip]/ws"
-docker-compose up
+docker-compose up -d
 # sometimes boxel links with crossbar too soon 
 docker-compose restart boxel
 ```
