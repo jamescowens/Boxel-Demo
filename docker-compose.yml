@@ -2,14 +2,10 @@ web:
   build: .
   ports:
     - 8080:8080
-  links:
-    - redis
-    - phantomjs
-    - boxel
 redis:
+  image: redis
   ports:
     - 6379:6379
-  image: redis
 phantomjs:
   ports:
     - 8910:8910
@@ -17,4 +13,9 @@ phantomjs:
   command: "/usr/local/bin/phantomjs --webdriver=8910"
 boxel:
   image: boxel-cli
-  command: "boxel video"
+  command: "boxel video -U ws://192.168.99.100:8080/ws"
+  links:
+    - redis
+    - phantomjs
+    - web
+
