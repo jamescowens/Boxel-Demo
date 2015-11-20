@@ -26,15 +26,17 @@ docker build -t boxel .
 docker images # should display boxel under REPOSITORY column
 ```
 
+Once we built the boxel container let's build it's dependencies:
+
 ## Crossbar
 Boxel uses [Crossbar](http://crossbar.io/) for device discovery, 
 communication between the web app to the minecraft server, and to serve the web app we just saw.
 
 ## Redis
-Boxel uses [Redis]() to push codec data into a pub/sub for Minecraft to use.
+Boxel uses [Redis](https://github.com/antirez/redis) to push codec data into a pub/sub for Minecraft to use.
 
 ## PhantomJS
-Boxel uses [PhantomJs]() for headless browsing to get images of websites to boxelize.
+Boxel uses [PhantomJS](https://github.com/ariya/phantomjs) for headless browsing to get images of websites to boxelize.
 
 ```bash
 # At the root of the project
