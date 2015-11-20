@@ -38,6 +38,7 @@ Boxel uses [Redis](https://github.com/antirez/redis) to push codec data into a p
 ## PhantomJS
 Boxel uses [PhantomJS](https://github.com/ariya/phantomjs) for headless browsing to get images of websites to boxelize.
 
+All of these dependencies can be built and packaged up into containers using [docker-compose]()
 ```bash
 # At the root of the project
 docker-machine ip <dev>
