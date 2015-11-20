@@ -9,4 +9,4 @@ RUN pip install crossbar[twisted]
 COPY .crossbar /.crossbar
 COPY web/dist /www
 
-ENTRYPOINT ["crossbar", "start"]
+CMD crossbar start && sleep 10
