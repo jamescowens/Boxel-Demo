@@ -19,7 +19,12 @@ But how do we login?
 We are going to need [docker-machine](https://github.com/docker/machine) to do this.
 
 Before we build up boxel's dependencies lets build the boxel container first.
-Clone [boxel]() and build the container ``'docker build -t boxel .```
+Clone [boxel]() and build the container:
+
+```bash
+docker build -t boxel .
+docker images # should display boxel under REPOSITORY column
+```
 
 ## Crossbar
 Boxel uses [Crossbar](http://crossbar.io/) for device discovery, 
