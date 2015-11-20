@@ -13,7 +13,7 @@ phantomjs:
   command: "/usr/local/bin/phantomjs --webdriver=8910"
 boxel:
   image: boxel-cli
-  command: "boxel video -R redis://192.168.99.100:6379/0 -U ws://192.168.99.100:8080/ws"
+  command: "boxel -C palettes/5bit.yml video -R redis://192.168.99.100:6379/0 -U ws://192.168.99.100:8080/ws"
   links:
     - redis
     - phantomjs
