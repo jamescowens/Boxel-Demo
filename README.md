@@ -17,7 +17,7 @@ gulp serve:dist
 A web browser should open up and look like this:
 
 But how do we login?
-We are going to need [docker-machine](https://github.com/docker/machine) to do this.
+We are going to need [docker-machine](https://github.com/docker/machine) to do this and a Docker host.
 
 ## Boxel
 
