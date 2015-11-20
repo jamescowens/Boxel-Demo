@@ -45,5 +45,10 @@ docker-machine ip <dev>
 # in the docker-compose.yml
 command: "boxel -W 50 -C palettes/5bit.yml video -R docker -U ws://[docker-machine ip]/ws"
 docker-compose up
+# sometimes boxel joins to crossbar too soon 
+docker-compose restart boxel
 ```
 
+Now if you got to the browser using the docker-machine ip(example: http://http://192.168.99.100:8080/). 
+Login using the docker-machine ip (192.168.99.100:8080) and boxel as the room. You should see yourself in
+realtime boxelized and sending to redis it's palletized code ready to drawn using Minecraft blocks.
