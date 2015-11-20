@@ -2,21 +2,24 @@
 Boxel has a lot of dependencies under the hood of it. This repo will help
 you get everything you need to start streaming video to minecraft.
 
-# setup
-## web client
-First lets get our streaming client up and running. ```bash
+# Setup
+## Web Client
+First lets get our streaming client up and running. 
+
+```bash
 cd web
 npm install && bower install
 gulp build
 gulp serve:dist
 ```
+
 A web browser should open up and look like this:
 
 But how do we login?
 We are going to need [docker-machine](https://github.com/docker/machine) to do this.
 
 Before we build up boxel's dependencies lets build the boxel container first.
-Clone [boxel]() and build the container ```docker build -t boxel .```
+Clone [boxel]() and build the container ``'docker build -t boxel .```
 
 ## Crossbar
 Boxel uses [Crossbar](http://crossbar.io/) for device discovery, 
