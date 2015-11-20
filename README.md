@@ -45,7 +45,7 @@ docker-machine ip <dev>
 # in the docker-compose.yml
 command: "boxel -W 50 -C palettes/5bit.yml video -R docker -U ws://[docker-machine ip]/ws"
 docker-compose up
-# sometimes boxel joins to crossbar too soon 
+# sometimes boxel links with crossbar too soon 
 docker-compose restart boxel
 ```
 
