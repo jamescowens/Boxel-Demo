@@ -71,8 +71,8 @@ docker-compose up -d
 docker-compose restart boxel
 ```
 
-If you got to the web container's address (something like http://<your docker-machine IP>:8080).
-You can login using your docker-machine IP (<docker-machine ip>:8080) and "boxel" as the room name. 
+If you got to the web container's address (something like http://[your docker-machine IP>:8080).
+You can login using your docker-machine IP ([your docker-machine IP]:8080) and "boxel" as the room name. 
 
 You should see your boxelized face in your browser window.  
 These frames are being published on the Redis PUB/SUB channel "boxel" and can be drawn by subscribed clients on a Minecraft server.
