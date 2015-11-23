@@ -43,10 +43,10 @@ communication between the web app to the minecraft server, and to serve the web 
 
 
 ## Redis
-Boxel uses [Redis](https://github.com/antirez/redis) to push codec data into a pub/sub for Minecraft to use.
+Boxel uses [Redis](https://github.com/antirez/redis) to push data into a PUB/SUB channel that Minecraft servers can subscribe to.
 
 ## PhantomJS
-Boxel uses [PhantomJS](https://github.com/ariya/phantomjs) for headless browsing to get images of websites to boxelize.
+Boxel uses [PhantomJS](https://github.com/ariya/phantomjs) for headless browsing to capture images of websites.
 
 # Installation 
 All of these dependencies can be built and packaged into Docker containers using [docker-compose](https://github.com/docker/compose)
