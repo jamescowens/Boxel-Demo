@@ -1,9 +1,9 @@
 # Boxel Demo
-Boxel has a lot of dependencies under the hood of it. This repo will help
-you get everything you need to start streaming video to minecraft.
+Boxel has a fair number of dependencies under the hood. This exmple will help
+you get everything you need to start streaming video to a Minecraft plugin.
 
 # Setup
-First lets get our streaming client up and running. 
+First, let's get a streaming client up and running. 
 
 ## Web Client
 
@@ -13,28 +13,32 @@ npm install && bower install
 gulp build
 gulp serve:dist
 ```
+A web browser should open up with a login page. This is the front-end for your boxel app.
 
-A web browser should open up with a login page.
 
-But how do we login?
-We are going to need [docker-machine](https://github.com/docker/machine) to do this and a Docker host.
+Video captured here can be boxelized and  streamed to clients -- including Minecraft servers.
+In order to boxelize and stream the video you'll need to set up the rest of the Boxel stack.
+
+In order to do this, we'll use [docker-machine](https://github.com/docker/machine) and create a [Docker](https://github.com/docker/docker) host.
+
+Install docker-machine and create a host by following the instructions [here](https://github.com/docker/machine).
 
 ## Boxel
 
-Before we build up boxel's dependencies lets build the boxel container first.
-Clone [boxel]() and build the container:
+Before we build Boxel's dependencies, let's build the Boxel container.
+Clone [boxel](https://github.com/VerizonCraft/Boxel) and build it:
 
 ```bash
 docker build -t boxel .
 docker images # should display boxel under REPOSITORY column
 ```
 
-Once we built the boxel container let's build it's dependencies.
+Boxel has three major dependencies -- we've provided docker containers to get them all running with a few commands.
 
 ## Crossbar
 Boxel uses [Crossbar](http://crossbar.io/) for device discovery, 
-communication between the web app to the minecraft server, and to serve the web app we just saw. 
-It is built in the web container in the docker-compose.yml.
+communication between the web app to the minecraft server, and to serve the web app we just saw.
+
 
 ## Redis
 Boxel uses [Redis](https://github.com/antirez/redis) to push codec data into a pub/sub for Minecraft to use.
@@ -43,20 +47,31 @@ Boxel uses [Redis](https://github.com/antirez/redis) to push codec data into a p
 Boxel uses [PhantomJS](https://github.com/ariya/phantomjs) for headless browsing to get images of websites to boxelize.
 
 # Installation 
-All of these dependencies can be built and packaged up into containers using [docker-compose]()
+All of these dependencies can be built and packaged into Docker containers using [docker-compose](https://github.com/docker/compose)
+
+First, get the IP address of your docker host:
 ```bash
 # At the root of the project
-docker-machine ip <dev>
-# keep track of this url and edit in the boxel service command
+docker-machine ip your-docker-machine-name
+```
+
+Then edit docker-compose.yml so the command points at the correct host:
+```
+# keep track of this IP and edit in the boxel service command
 # in the docker-compose.yml
-command: "boxel -W 50 -C palettes/5bit.yml video -R docker -U ws://[docker-machine ip]/ws"
+command: "boxel -W 50 -C palettes/5bit.yml video -R docker -U ws://[docker-machine IP]/ws"
+```
+
+Now you should be able to start Boxel and its dependencies like so:
+```
 docker-compose up -d
-# sometimes boxel links with crossbar too soon 
+# sometimes boxel starts before crossbar, if so you'll need to restart
 docker-compose restart boxel
 ```
 
-Now if you got to the web containers ip (http://[docker-machine ip]:8080). 
-Login using the docker-machine ip ([docker-machine ip]:8080) and boxel as the room. 
+If you got to the web container's address (something like http://<your docker-machine IP>:8080).
+You can login using your docker-machine IP (<docker-machine ip>:8080) and "boxel" as the room name. 
 
-You should see yourself in realtime boxelized and sending to redis it's palletized code 
-ready to be drawn using Minecraft blocks.
+You should see your boxelized face in your browser window.  
+These frames are being published on the Redis PUB/SUB channel "boxel" and can be drawn by subscribed clients on a Minecraft server.
+
