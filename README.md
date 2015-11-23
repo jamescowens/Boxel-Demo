@@ -1,9 +1,9 @@
 # Boxel Demo
-Boxel has a fair number of dependencies under the hood. This exmple will help
-you get everything you need to start streaming video to a Minecraft plugin.
+Boxel has a fair number of dependencies under the hood. 
+This example will help you get everything you need up and running for streaming video to a Minecraft plugin.
 
 # Setup
-First, let's get a streaming client up and running. 
+First, let's get a web client started. 
 
 ## Web Client
 
@@ -13,13 +13,15 @@ npm install && bower install
 gulp build
 gulp serve:dist
 ```
-A web browser should open up with a login page. This is the front-end for your boxel app.
+A web browser should open up with a login page. 
 
+This is the front-end for your boxel app.
 
-Video captured here can be boxelized and  streamed to clients -- including Minecraft servers.
+Video captured here can be "boxelized" and streamed to clients -- including Minecraft servers.
 In order to boxelize and stream the video you'll need to set up the rest of the Boxel stack.
 
-In order to do this, we'll use [docker-machine](https://github.com/docker/machine) and create a [Docker](https://github.com/docker/docker) host.
+We'll use [docker-machine](https://github.com/docker/machine) and create a [Docker](https://github.com/docker/docker) 
+host where we can run Boxel and its dependencies.
 
 Install docker-machine and create a host by following the instructions [here](https://github.com/docker/machine).
 
@@ -74,4 +76,7 @@ You can login using your docker-machine IP (<docker-machine ip>:8080) and "boxel
 
 You should see your boxelized face in your browser window.  
 These frames are being published on the Redis PUB/SUB channel "boxel" and can be drawn by subscribed clients on a Minecraft server.
+
+# License
+This repository and its code are made available under a BSD 3-Clause license, which can be found [here](https://github.com/VerizonCraft/Boxel-demo/blob/master/LICENSE)
 
