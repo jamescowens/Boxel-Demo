@@ -67,12 +67,10 @@ its dependencies up. Let's take a look:
 ```bash
 # using the name of the Docker machine you created above, get the host IP
 $ IP=$(docker-machine ip [your-machine-name])
-
 # next, update the docker-compose YAML file with the host IP
 $ cat docker-compose.yml | sed -e #<<IP>>#${IP}#g > docker-compose.yml.tmp
 # now replace the old YAML file
 $ mv docker-compose.yml.tmp docker-compose.yml
-
 # finally, start up Boxel and its dependent containers
 $ docker-compose up -d
 # sometimes Boxel starts before Crossbar, so we recommend restarting Boxel
@@ -83,6 +81,7 @@ $ docker-compose restart boxel
 
 **That's it!** Let's take a closer look and break all that down:
 
+####Obtaining the IP of your Docker machine
 First, you will need the IP address of your docker host. We can get that by
 getting into the root directory of your project, then running the docker-machine
 command to get an IP address:
@@ -92,8 +91,7 @@ command to get an IP address:
 $ IP=$(docker-machine ip [your-machine-name])
 ```
 
----
-
+####Updating docker-compose.yml
 Next, we need to update `docker-compose.yml`, so that it knows which Docker
 machine to target. You can either use your favorite text editor to replace
 `<<IP>>` with the IP address you got in the first step, or you can use `cat` and
@@ -106,8 +104,7 @@ $ cat docker-compose.yml | sed -e #<<IP>>#${IP}#g > docker-compose.yml.tmp
 $ mv docker-compose.yml.tmp docker-compose.yml
 ```
 
----
-
+####Building Boxel and dependent containers
 Lastly, all we have to do is start up Boxel. On occasion, the Boxel container
 will fire up *before* the Crossbar container, so we like to give Boxel a nudge
 after starting everything up by restarting it.
