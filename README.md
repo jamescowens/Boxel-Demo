@@ -129,10 +129,6 @@ The web client you built all those README lines ago, should be streaming your
 boxelized face into your browser window (*these frames are being published on
 the Redis PUB/SUB channel "boxel" and can be drawn by subscribed clients on a Minecraft server*).
 
-# Contributing
-If you'd like to contribute to this demo, check out our [contributing guidelines](https://github.com/VerizonCraft/Boxel-demo/blob/master/CONTRIBUTING.md)
-and [code of conduct](https://github.com/VerizonCraft/Boxel-demo/blob/master/COC.md).
-
 # License
 This repository and its code are made available under a BSD 3-Clause license, which can be found [here](https://github.com/VerizonCraft/Boxel-demo/blob/master/LICENSE).
 
